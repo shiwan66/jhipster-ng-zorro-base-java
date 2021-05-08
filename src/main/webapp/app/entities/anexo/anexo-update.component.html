@@ -1,0 +1,73 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-anexo-heading" jhiTranslate="ngzorroApp.anexo.home.createOrEditLabel">Create or edit a Anexo</h2>
+                <div class="row">
+                    <jhi-alert-error></jhi-alert-error>
+                    <div class="form-group col-md-12" [hidden]="!editForm.get('id').value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                            readonly />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.anexo.anexo" for="field_anexo">Anexo</label>
+                        <div>
+                            <div *ngIf="editForm.get('anexo').value" class="form-text text-danger clearfix">
+                                <a class="pull-left" (click)="openFile(editForm.get('anexoContentType').value, editForm.get('anexo').value)" jhiTranslate="entity.action.open">open</a><br>
+                                <span class="pull-left">{{editForm.get('anexoContentType').value}}, {{byteSize(editForm.get('anexo').value)}}</span>
+                                <button type="button" (click)="editForm.patchValue({anexo: null});editForm.patchValue({anexoContentType: null});"
+                                        class="btn btn-secondary btn-xs pull-right">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                </button>
+                            </div>
+                            <input type="file" id="file_anexo" (change)="setFileData($event, 'anexo', false)" jhiTranslate="entity.action.addblob"/>
+                        </div>
+                        <input type="hidden" class="form-control" name="anexo" id="field_anexo"
+                               formControlName="anexo"/>
+                        <input type="hidden" class="form-control" name="anexoContentType" id="field_anexoContentType"
+                               formControlName="anexoContentType" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.anexo.descricao" for="field_descricao">Descricao</label>
+                        <input type="text" class="form-control" name="descricao" id="field_descricao"
+                               formControlName="descricao"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.anexo.data" for="field_data">Data</label>
+                        <div class="d-flex">
+                            <input id="field_data" type="datetime-local" class="form-control" name="data" formControlName="data" placeholder="YYYY-MM-DD HH:mm"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.anexo.url" for="field_url">Url</label>
+                        <input type="text" class="form-control" name="url" id="field_url"
+                               formControlName="url"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.anexo.urlThumbnail" for="field_urlThumbnail">Url Thumbnail</label>
+                        <input type="text" class="form-control" name="urlThumbnail" id="field_urlThumbnail"
+                               formControlName="urlThumbnail"/>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.anexo.animal" for="field_animal">Animal</label>
+                        <select class="form-control" id="field_animal" name="animal" formControlName="animalId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="animalOption.id" *ngFor="let animalOption of animals; trackBy: trackById">{{animalOption.id}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

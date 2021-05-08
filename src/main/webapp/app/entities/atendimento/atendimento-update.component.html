@@ -1,0 +1,59 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-atendimento-heading" jhiTranslate="ngzorroApp.atendimento.home.createOrEditLabel">Create or edit a Atendimento</h2>
+                <div class="row">
+                    <jhi-alert-error></jhi-alert-error>
+                    <div class="form-group col-md-12" [hidden]="!editForm.get('id').value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                            readonly />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.atendimento.situacao" for="field_situacao">Situacao</label>
+                        <select class="form-control" name="situacao" formControlName="situacao" id="field_situacao">
+                            <option value="EM_ANDAMENTO">{{'ngzorroApp.AtendimentoSituacao.EM_ANDAMENTO' | translate}}</option>
+                            <option value="CONCLUIDO">{{'ngzorroApp.AtendimentoSituacao.CONCLUIDO' | translate}}</option>
+                            <option value="CANCELADO">{{'ngzorroApp.AtendimentoSituacao.CANCELADO' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.atendimento.dataDeChegada" for="field_dataDeChegada">Data De Chegada</label>
+                        <div class="d-flex">
+                            <input id="field_dataDeChegada" type="datetime-local" class="form-control" name="dataDeChegada" formControlName="dataDeChegada" placeholder="YYYY-MM-DD HH:mm"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.atendimento.dataDeSaida" for="field_dataDeSaida">Data De Saida</label>
+                        <div class="d-flex">
+                            <input id="field_dataDeSaida" type="datetime-local" class="form-control" name="dataDeSaida" formControlName="dataDeSaida" placeholder="YYYY-MM-DD HH:mm"/>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.atendimento.observacao" for="field_observacao">Observacao</label>
+                        <input type="text" class="form-control" name="observacao" id="field_observacao"
+                               formControlName="observacao"/>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.atendimento.animal" for="field_animal">Animal</label>
+                        <select class="form-control" id="field_animal" name="animal" formControlName="animalId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="animalOption.id" *ngFor="let animalOption of animals; trackBy: trackById">{{animalOption.id}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

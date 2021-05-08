@@ -1,0 +1,22 @@
+{
+  "ngzorroApp": {
+    "animalTipoDeVacina": {
+      "home": {
+        "title": "Animal Tipo De Vacinas",
+        "createLabel": "Criar novo Animal Tipo De Vacina",
+        "createOrEditLabel": "Criar ou editar Animal Tipo De Vacina",
+        "notFound": "Nenhum Animal Tipo De Vacina encontrado"
+      },
+      "created": "Um novo Animal Tipo De Vacina foi criado com o identificador {{ param }}",
+      "updated": "Um Animal Tipo De Vacina foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal Tipo De Vacina foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal Tipo De Vacina {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Tipo De Vacina"
+      },
+      "descricao": "Descricao"
+    }
+  }
+}

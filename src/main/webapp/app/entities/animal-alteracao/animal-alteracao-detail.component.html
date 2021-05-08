@@ -1,0 +1,54 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="animalAlteracao">
+                <h2><span jhiTranslate="ngzorroApp.animalAlteracao.detail.title">Animal Alteracao</span> {{animalAlteracao.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animalAlteracao.descricao">Descricao</span></dt>
+                        <dd>
+                            <span>{{animalAlteracao.descricao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animalAlteracao.dataAlteracao">Data Alteracao</span></dt>
+                        <dd>
+                            <span>{{animalAlteracao.dataAlteracao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animalAlteracao.animalTipoDeAlteracao">Animal Tipo De Alteracao</span></dt>
+                        <dd>
+                            <div *ngIf="animalAlteracao.animalTipoDeAlteracaoId">
+                                <a [routerLink]="['/animal-tipo-de-alteracao', animalAlteracao.animalTipoDeAlteracaoId, 'view']">{{animalAlteracao.animalTipoDeAlteracaoDescricao}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animalAlteracao.animal">Animal</span></dt>
+                        <dd>
+                            <div *ngIf="animalAlteracao.animalId">
+                                <a [routerLink]="['/animal', animalAlteracao.animalId, 'view']">{{animalAlteracao.animalId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/animal-alteracao', animalAlteracao.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

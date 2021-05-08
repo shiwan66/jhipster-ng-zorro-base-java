@@ -1,0 +1,63 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.ngzorro",
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "6.5.1",
+    "applicationType": "monolith",
+    "baseName": "ngzorro",
+    "packageName": "br.com.ngzorro",
+    "packageFolder": "br/com/ngzorro",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YzYxOTgwNjE2ZmM5YjI0YmU2MTVkNjJjNDJjN2Q3YTQwYmU0OGRhMzA2M2QxMGVjMjdhOTI4NjM5MTNkNGFjZmNiYWZmMDY4Y2Q2OWFiZjIwYzFkYjY3NTZmZTAxMGQxOGNhZDEzNGIxODkxNjZmNDk2MDEzNmE1N2EwOWJjNTI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-login-page",
+        "version": "1.0.0"
+      }
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": ["pt-br"],
+    "blueprints": [
+      {
+        "name": "generator-jhipster-login-page",
+        "version": "1.0.0"
+      }
+    ]
+  },
+  "generator-jhipster-login-page": {
+    "jhipsterVersion": "6.5.1",
+    "applicationType": "monolith",
+    "baseName": "ngzorro",
+    "useSass": true,
+    "enableTranslation": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": ""
+  }
+}

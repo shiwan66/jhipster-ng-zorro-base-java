@@ -1,0 +1,35 @@
+{
+  "ngzorroApp": {
+    "tutor": {
+      "home": {
+        "title": "Tutors",
+        "createLabel": "Criar novo Tutor",
+        "createOrEditLabel": "Criar ou editar Tutor",
+        "notFound": "Nenhum Tutor encontrado"
+      },
+      "created": "Um novo Tutor foi criado com o identificador {{ param }}",
+      "updated": "Um Tutor foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Tutor foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Tutor {{ id }}?"
+      },
+      "detail": {
+        "title": "Tutor"
+      },
+      "nome": "Nome",
+      "sobrenome": "Sobrenome",
+      "telefone1": "Telefone 1",
+      "telefone2": "Telefone 2",
+      "email": "Email",
+      "foto": "Foto",
+      "fotoUrl": "Foto Url",
+      "cpf": "Cpf",
+      "sexo": "Sexo",
+      "dataCadastro": "Data Cadastro",
+      "user": "User",
+      "titulo": "Titulo",
+      "animal": "Animal",
+      "endereco": "Endereco"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "ngzorroApp": {
+    "animalTipoDeAlteracao": {
+      "home": {
+        "title": "Animal Tipo De Alteracaos",
+        "createLabel": "Criar novo Animal Tipo De Alteracao",
+        "createOrEditLabel": "Criar ou editar Animal Tipo De Alteracao",
+        "notFound": "Nenhum Animal Tipo De Alteracao encontrado"
+      },
+      "created": "Um novo Animal Tipo De Alteracao foi criado com o identificador {{ param }}",
+      "updated": "Um Animal Tipo De Alteracao foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal Tipo De Alteracao foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal Tipo De Alteracao {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Tipo De Alteracao"
+      },
+      "descricao": "Descricao"
+    }
+  }
+}

@@ -1,0 +1,64 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="atividade">
+                <h2><span jhiTranslate="ngzorroApp.atividade.detail.title">Atividade</span> {{atividade.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.atividade.titulo">Titulo</span></dt>
+                        <dd>
+                            <span>{{atividade.titulo}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.atividade.inicio">Inicio</span></dt>
+                        <dd>
+                            <span>{{atividade.inicio}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.atividade.termino">Termino</span></dt>
+                        <dd>
+                            <span>{{atividade.termino}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.atividade.observacao">Observacao</span></dt>
+                        <dd>
+                            <span>{{atividade.observacao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.atividade.realizado">Realizado</span></dt>
+                        <dd>
+                            <span>{{atividade.realizado}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.atividade.atendimento">Atendimento</span></dt>
+                        <dd>
+                            <div *ngIf="atividade.atendimentoId">
+                                <a [routerLink]="['/atendimento', atividade.atendimentoId, 'view']">{{atividade.atendimentoId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/atividade', atividade.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,75 @@
+<div class="card jh-card">
+    <h2 id="page-heading">
+        <span jhiTranslate="ngzorroApp.fornecedor.home.title">Fornecedors</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-fornecedor" [routerLink]="['/fornecedor/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ngzorroApp.fornecedor.home.createLabel">
+            Create a new Fornecedor
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="fornecedors?.length === 0">
+        <span jhiTranslate="ngzorroApp.fornecedor.home.notFound">No fornecedors found</span>
+    </div>
+    <div class="table-responsive" *ngIf="fornecedors?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nome"><span jhiTranslate="ngzorroApp.fornecedor.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="telefone"><span jhiTranslate="ngzorroApp.fornecedor.telefone">Telefone</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="email"><span jhiTranslate="ngzorroApp.fornecedor.email">Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pontoReferencia"><span jhiTranslate="ngzorroApp.fornecedor.pontoReferencia">Ponto Referencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="enderecoLogradouro"><span jhiTranslate="ngzorroApp.fornecedor.endereco">Endereco</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fornecedor of fornecedors ;trackBy: trackId">
+                <td><a [routerLink]="['/fornecedor', fornecedor.id, 'view' ]">{{fornecedor.id}}</a></td>
+                <td>{{fornecedor.nome}}</td>
+                <td>{{fornecedor.telefone}}</td>
+                <td>{{fornecedor.email}}</td>
+                <td>{{fornecedor.pontoReferencia}}</td>
+                <td>
+                    <div *ngIf="fornecedor.enderecoId">
+                        <a [routerLink]="['/endereco', fornecedor.enderecoId , 'view' ]" >{{fornecedor.enderecoLogradouro}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/fornecedor', fornecedor.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/fornecedor', fornecedor.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(fornecedor)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="fornecedors?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

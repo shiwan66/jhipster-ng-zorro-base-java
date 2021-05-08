@@ -1,0 +1,35 @@
+{
+    "name": "AnimalVacina",
+    "fields": [
+        {
+            "fieldName": "dataDaAplicacao",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "animalTipoDeVacina",
+            "otherEntityRelationshipName": "animalVacina",
+            "relationshipName": "animalTipoDeVacina",
+            "otherEntityField": "descricao"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "animal",
+            "otherEntityRelationshipName": "tipoVacina",
+            "relationshipName": "animal",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230258",
+    "entityTableName": "animal_vacina",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

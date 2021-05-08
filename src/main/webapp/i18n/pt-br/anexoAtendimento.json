@@ -1,0 +1,27 @@
+{
+  "ngzorroApp": {
+    "anexoAtendimento": {
+      "home": {
+        "title": "Anexo Atendimentos",
+        "createLabel": "Criar novo Anexo Atendimento",
+        "createOrEditLabel": "Criar ou editar Anexo Atendimento",
+        "notFound": "Nenhum Anexo Atendimento encontrado"
+      },
+      "created": "Um novo Anexo Atendimento foi criado com o identificador {{ param }}",
+      "updated": "Um Anexo Atendimento foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Anexo Atendimento foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Anexo Atendimento {{ id }}?"
+      },
+      "detail": {
+        "title": "Anexo Atendimento"
+      },
+      "anexo": "Anexo",
+      "descricao": "Descricao",
+      "data": "Data",
+      "url": "Url",
+      "urlThumbnail": "Url Thumbnail",
+      "atendimento": "Atendimento"
+    }
+  }
+}

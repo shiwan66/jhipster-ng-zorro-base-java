@@ -1,0 +1,84 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="titulo">
+                <h2><span jhiTranslate="ngzorroApp.titulo.detail.title">Titulo</span> {{titulo.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.isPago">Is Pago</span></dt>
+                        <dd>
+                            <span>{{titulo.isPago}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.tipo">Tipo</span></dt>
+                        <dd>
+                            <span jhiTranslate="{{'ngzorroApp.TipoTitulo.' + titulo.tipo}}">{{titulo.tipo}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.descricao">Descricao</span></dt>
+                        <dd>
+                            <span>{{titulo.descricao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.valor">Valor</span></dt>
+                        <dd>
+                            <span>{{titulo.valor}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.dataEmissao">Data Emissao</span></dt>
+                        <dd>
+                            <span>{{titulo.dataEmissao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.dataPagamento">Data Pagamento</span></dt>
+                        <dd>
+                            <span>{{titulo.dataPagamento}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.dataVencimento">Data Vencimento</span></dt>
+                        <dd>
+                            <span>{{titulo.dataVencimento}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.tutor">Tutor</span></dt>
+                        <dd>
+                            <div *ngIf="titulo.tutorId">
+                                <a [routerLink]="['/tutor', titulo.tutorId, 'view']">{{titulo.tutorId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.titulo.fornecedor">Fornecedor</span></dt>
+                        <dd>
+                            <div *ngIf="titulo.fornecedorId">
+                                <a [routerLink]="['/fornecedor', titulo.fornecedorId, 'view']">{{titulo.fornecedorId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/titulo', titulo.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

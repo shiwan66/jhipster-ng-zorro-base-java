@@ -1,0 +1,11 @@
+id;imagem;imagem_content_type;nome;descricao;preco;data;hora
+1;../fake-data/blob/hipster.png;image/png;mobile Fish;../fake-data/blob/hipster.txt;77969;2020-02-26;2020-02-26T09:10:58
+2;../fake-data/blob/hipster.png;image/png;Dam;../fake-data/blob/hipster.txt;9997;2020-02-26;2020-02-26T12:29:07
+3;../fake-data/blob/hipster.png;image/png;seamless Metal deposit;../fake-data/blob/hipster.txt;5641;2020-02-26;2020-02-26T06:10:45
+4;../fake-data/blob/hipster.png;image/png;Implementation Electronics Officer;../fake-data/blob/hipster.txt;61748;2020-02-26;2020-02-26T08:49:39
+5;../fake-data/blob/hipster.png;image/png;Grocery Home;../fake-data/blob/hipster.txt;52477;2020-02-26;2020-02-26T13:54:38
+6;../fake-data/blob/hipster.png;image/png;Gorgeous Frozen Pants;../fake-data/blob/hipster.txt;23277;2020-02-26;2020-02-26T21:19:57
+7;../fake-data/blob/hipster.png;image/png;Savings Account syndicate Planner;../fake-data/blob/hipster.txt;46676;2020-02-26;2020-02-26T02:52:07
+8;../fake-data/blob/hipster.png;image/png;Yuan Renminbi Centers;../fake-data/blob/hipster.txt;1326;2020-02-26;2020-02-26T00:53:40
+9;../fake-data/blob/hipster.png;image/png;South Dakota envisioneer Music;../fake-data/blob/hipster.txt;23089;2020-02-26;2020-02-26T17:43:21
+10;../fake-data/blob/hipster.png;image/png;Bahamian Dollar Investment Account;../fake-data/blob/hipster.txt;83319;2020-02-26;2020-02-26T19:20:47

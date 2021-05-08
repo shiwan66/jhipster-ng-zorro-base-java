@@ -1,0 +1,29 @@
+{
+  "ngzorroApp": {
+    "venda": {
+      "home": {
+        "title": "Vendas",
+        "createLabel": "Criar novo Venda",
+        "createOrEditLabel": "Criar ou editar Venda",
+        "notFound": "Nenhum Venda encontrado"
+      },
+      "created": "Um novo Venda foi criado com o identificador {{ param }}",
+      "updated": "Um Venda foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Venda foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Venda {{ id }}?"
+      },
+      "detail": {
+        "title": "Venda"
+      },
+      "observacao": "Observacao",
+      "dataDaCompra": "Data Da Compra",
+      "dataDoPagamento": "Data Do Pagamento",
+      "desconto": "Desconto",
+      "situacao": "Situacao",
+      "valorTotal": "Valor Total",
+      "vendaConsumo": "Venda Consumo",
+      "atendimento": "Atendimento"
+    }
+  }
+}

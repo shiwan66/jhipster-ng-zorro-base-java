@@ -1,0 +1,56 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-venda-consumo-heading" jhiTranslate="ngzorroApp.vendaConsumo.home.createOrEditLabel">Create or edit a Venda Consumo</h2>
+                <div class="row">
+                    <jhi-alert-error></jhi-alert-error>
+                    <div class="form-group col-md-12" [hidden]="!editForm.get('id').value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                            readonly />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.vendaConsumo.quantidade" for="field_quantidade">Quantidade</label>
+                        <input type="number" class="form-control" name="quantidade" id="field_quantidade"
+                               formControlName="quantidade"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.vendaConsumo.valorUnitario" for="field_valorUnitario">Valor Unitario</label>
+                        <input type="number" class="form-control" name="valorUnitario" id="field_valorUnitario"
+                               formControlName="valorUnitario"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.vendaConsumo.valorTotal" for="field_valorTotal">Valor Total</label>
+                        <input type="number" class="form-control" name="valorTotal" id="field_valorTotal"
+                               formControlName="valorTotal"/>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.vendaConsumo.venda" for="field_venda">Venda</label>
+                        <select class="form-control" id="field_venda" name="venda" formControlName="vendaId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="vendaOption.id" *ngFor="let vendaOption of vendas; trackBy: trackById">{{vendaOption.id}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.vendaConsumo.consumo" for="field_consumo">Consumo</label>
+                        <select class="form-control" id="field_consumo" name="consumo" formControlName="consumoId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="consumoOption.id" *ngFor="let consumoOption of consumos; trackBy: trackById">{{consumoOption.id}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

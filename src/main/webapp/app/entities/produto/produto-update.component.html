@@ -1,0 +1,126 @@
+<div>
+    <nz-page-header [nzGhost]="false">
+        <nz-page-header-title>
+            <span jhiTranslate="ngzorroApp.produto.home.createOrEditLabel">Create or edit a User</span>
+        </nz-page-header-title>
+    </nz-page-header>
+
+    <jhi-alert-error></jhi-alert-error>
+    <br />
+
+    <form name="editForm" (ngSubmit)="save()" [formGroup]="editForm">
+        <nz-form-item *ngIf="editForm.get(['id']).value">
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="global.field.id">ID</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input formControlName="id" readonly disabled="true" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-control [nzOffset]="3" [nzSpan]="12">
+                <nz-upload class="avatar-uploader" nzName="imagem" [nzCustomRequest]="customReq"
+                    nzListType="picture-card" [nzShowUploadList]="false"
+                    (nzChange)="setFileData($event, 'imagem', true)">
+
+                    <ng-container *ngIf="!editForm.get('imagem').value">
+                        <i class="upload-icon" nz-icon [nzType]="'plus'"></i>
+                        <div class="ant-upload-text">
+                            <span jhiTranslate="global.field.upload"></span>
+                        </div>
+                    </ng-container>
+                    <img *ngIf="editForm.get('imagem').value"
+                        [src]="'data:' + editForm.get('imagemContentType').value + ';base64,' + editForm.get('imagem').value"
+                        style="width: 100%" />
+                </nz-upload>
+                <input type="hidden" class="form-control" name="imagem" id="field_imagem" formControlName="imagem" />
+                <input type="hidden" class="form-control" name="imagemContentType" id="field_imagemContentType"
+                    formControlName="imagemContentType" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3" nzRequired>
+                <span jhiTranslate="ngzorroApp.produto.nome">Nome</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="nomeErrorTpl">
+                <input nz-input formControlName="nome" />
+                <ng-template #nomeErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                        <span jhiTranslate="entity.validation.required">
+                            This field is required.</span>
+                    </ng-container>
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="ngzorroApp.produto.descricao">Descricao</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <textarea nz-input formControlName="descricao"></textarea>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="ngzorroApp.produto.preco">Preco</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <input type="number" nz-input formControlName="preco" nzOverlayClassName="numeric-input" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="ngzorroApp.produto.data">Data</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-date-picker formControlName="data"></nz-date-picker>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="ngzorroApp.produto.hora">Hora</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <input nz-input type="datetime-local" formControlName="hora" placeholder="YYYY-MM-DD HH:mm" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="ngzorroApp.produto.categoria">Categoria</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-select [nzMaxTagCount]="3" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple"
+                    name="categorias" formControlName="categorias">
+                    <nz-option *ngFor="let categoriaOption of categorias; trackBy: trackCategoriaById"
+                        [nzValue]="categoriaOption" [nzLabel]="categoriaOption.id">
+                    </nz-option>
+                </nz-select>
+                <ng-template #tagPlaceHolder let-selectedList>
+                    <span jhiTranslate="entity.select.multSelected"
+                        [translateValues]="{count: selectedList.length}"></span>
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-control [nzOffset]="1" [nzSpan]="12">
+                <button type="button" nz-button nzType="default" (click)="previousState()">
+                    <i nz-icon nzType="stop" nzTheme="outline"></i>
+                    <span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button nz-button nzType="primary" [disabled]="!editForm.valid || isSaving">
+                    <i nz-icon nzType="save" nzTheme="outline"></i>
+                    <span jhiTranslate="entity.action.save"> save </span>
+                </button>
+            </nz-form-control>
+        </nz-form-item>
+
+    </form>
+</div>

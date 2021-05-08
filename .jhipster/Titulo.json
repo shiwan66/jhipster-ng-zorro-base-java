@@ -1,0 +1,61 @@
+{
+    "name": "Titulo",
+    "fields": [
+        {
+            "fieldName": "isPago",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "TipoTitulo",
+            "fieldValues": "RECEITA,DESPESA"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dataEmissao",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataPagamento",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "dataVencimento",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tutor",
+            "otherEntityRelationshipName": "titulo",
+            "relationshipName": "tutor",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "fornecedor",
+            "otherEntityRelationshipName": "titulo",
+            "relationshipName": "fornecedor",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230310",
+    "entityTableName": "titulo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

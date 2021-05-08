@@ -1,0 +1,48 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-animal-vermifugo-heading" jhiTranslate="ngzorroApp.animalVermifugo.home.createOrEditLabel">Create or edit a Animal Vermifugo</h2>
+                <div class="row">
+                    <jhi-alert-error></jhi-alert-error>
+                    <div class="form-group col-md-12" [hidden]="!editForm.get('id').value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                            readonly />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animalVermifugo.nome" for="field_nome">Nome</label>
+                        <input type="text" class="form-control" name="nome" id="field_nome"
+                               formControlName="nome"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animalVermifugo.dataDaAplicacao" for="field_dataDaAplicacao">Data Da Aplicacao</label>
+                        <div class="input-group col-md-6">
+                            <input id="field_dataDaAplicacao" type="text" class="form-control" name="dataDaAplicacao" ngbDatepicker  #dataDaAplicacaoDp="ngbDatepicker" formControlName="dataDaAplicacao"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-secondary" (click)="dataDaAplicacaoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animalVermifugo.animal" for="field_animal">Animal</label>
+                        <select class="form-control" id="field_animal" name="animal" formControlName="animalId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="animalOption.id" *ngFor="let animalOption of animals; trackBy: trackById">{{animalOption.id}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

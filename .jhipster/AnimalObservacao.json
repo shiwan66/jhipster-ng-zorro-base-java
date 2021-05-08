@@ -1,0 +1,33 @@
+{
+    "name": "AnimalObservacao",
+    "fields": [
+        {
+            "fieldName": "dataAlteracao",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "observacao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "animal",
+            "otherEntityRelationshipName": "observacao",
+            "relationshipName": "animal",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230255",
+    "entityTableName": "animal_observacao",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,24 @@
+{
+  "ngzorroApp": {
+    "animalObservacao": {
+      "home": {
+        "title": "Animal Observacaos",
+        "createLabel": "Criar novo Animal Observacao",
+        "createOrEditLabel": "Criar ou editar Animal Observacao",
+        "notFound": "Nenhum Animal Observacao encontrado"
+      },
+      "created": "Um novo Animal Observacao foi criado com o identificador {{ param }}",
+      "updated": "Um Animal Observacao foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal Observacao foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal Observacao {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Observacao"
+      },
+      "dataAlteracao": "Data Alteracao",
+      "observacao": "Observacao",
+      "animal": "Animal"
+    }
+  }
+}

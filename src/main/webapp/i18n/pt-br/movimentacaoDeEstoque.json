@@ -1,0 +1,26 @@
+{
+  "ngzorroApp": {
+    "movimentacaoDeEstoque": {
+      "home": {
+        "title": "Movimentacao De Estoques",
+        "createLabel": "Criar novo Movimentacao De Estoque",
+        "createOrEditLabel": "Criar ou editar Movimentacao De Estoque",
+        "notFound": "Nenhum Movimentacao De Estoque encontrado"
+      },
+      "created": "Um novo Movimentacao De Estoque foi criado com o identificador {{ param }}",
+      "updated": "Um Movimentacao De Estoque foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Movimentacao De Estoque foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Movimentacao De Estoque {{ id }}?"
+      },
+      "detail": {
+        "title": "Movimentacao De Estoque"
+      },
+      "tipo": "Tipo",
+      "descricao": "Descricao",
+      "data": "Data",
+      "quantidade": "Quantidade",
+      "consumo": "Consumo"
+    }
+  }
+}

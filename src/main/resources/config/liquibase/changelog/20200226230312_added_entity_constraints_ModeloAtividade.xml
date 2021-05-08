@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ModeloAtividade.
+    -->
+    <changeSet id="20200226230312-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="modelo_atividade_id"
+                                 baseTableName="modelo_atividade_atividade"
+                                 constraintName="fk_modelo_atividade_atividade_modelo_atividade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="modelo_atividade"/>
+
+        <addForeignKeyConstraint baseColumnNames="atividade_id"
+                                 baseTableName="modelo_atividade_atividade"
+                                 constraintName="fk_modelo_atividade_atividade_atividade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="atividade"/>
+        
+    </changeSet>
+</databaseChangeLog>

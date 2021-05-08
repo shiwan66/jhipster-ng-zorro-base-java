@@ -1,0 +1,24 @@
+{
+  "ngzorroApp": {
+    "animalCarrapaticida": {
+      "home": {
+        "title": "Animal Carrapaticidas",
+        "createLabel": "Criar novo Animal Carrapaticida",
+        "createOrEditLabel": "Criar ou editar Animal Carrapaticida",
+        "notFound": "Nenhum Animal Carrapaticida encontrado"
+      },
+      "created": "Um novo Animal Carrapaticida foi criado com o identificador {{ param }}",
+      "updated": "Um Animal Carrapaticida foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal Carrapaticida foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal Carrapaticida {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Carrapaticida"
+      },
+      "nome": "Nome",
+      "dataAplicacao": "Data Aplicacao",
+      "animal": "Animal"
+    }
+  }
+}

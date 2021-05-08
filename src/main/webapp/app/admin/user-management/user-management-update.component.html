@@ -1,0 +1,147 @@
+<div>
+
+    <nz-page-header [nzGhost]="false">
+        <nz-page-header-title>
+            <span jhiTranslate="userManagement.home.createOrEditLabel">Create or edit a User</span>
+        </nz-page-header-title>
+    </nz-page-header>
+
+    <jhi-alert-error></jhi-alert-error>
+    <br />
+
+    <form nz-form [formGroup]="editForm" (ngSubmit)="save()">
+        <nz-form-item *ngIf="user.id">
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="global.field.id">ID</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input formControlName="id" readonly disabled="true" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3" nzRequired>
+                <span jhiTranslate="userManagement.login">Login</span>
+            </nz-form-label>
+            <nz-form-control nzHasFeedback [nzSpan]="12" [nzErrorTip]="loginErrorTpl">
+                <input nz-input formControlName="login" />
+                <ng-template #loginErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                        <span jhiTranslate="entity.validation.required"></span>
+                    </ng-container>
+
+                    <ng-container *ngIf="control.hasError('maxlength')">
+                        <span jhiTranslate="entity.validation.maxlength" [translateValues]="{max: 50}"></span>
+                    </ng-container>
+
+                    <ng-container *ngIf="control.hasError('pattern')">
+                        <span jhiTranslate="entity.validation.patternLogin"></span>
+                    </ng-container>
+
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3" nzRequired>
+                <span jhiTranslate="userManagement.firstName">First Name</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="firstNameErrorTpl">
+                <input nz-input formControlName="firstName" />
+                <ng-template #firstNameErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('maxlength')">
+                        <span jhiTranslate="entity.validation.maxlength" [translateValues]="{max: 50}"></span>
+                    </ng-container>
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3" nzRequired>
+                <span jhiTranslate="userManagement.lastName">Last Name</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="lastNameErrorTpl">
+                <input nz-input formControlName="lastName" />
+                <ng-template #lastNameErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('maxlength')">
+                        <span jhiTranslate="entity.validation.maxlength" [translateValues]="{max: 50}"></span>
+                    </ng-container>
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3" nzRequired>E-mail</nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">
+                <input nz-input formControlName="email" placeholder="email" type="email" />
+                <ng-template #emailErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('email')">
+                        <span jhiTranslate="global.messages.validate.email.invalid"></span>
+                    </ng-container>
+
+                    <ng-container *ngIf="control.hasError('required')">
+                        <span jhiTranslate="entity.validation.required"></span>
+                    </ng-container>
+
+                    <ng-container *ngIf="control.hasError('maxlength')">
+                        <span jhiTranslate="entity.validation.maxlength" [translateValues]="{max: 100}"></span>
+                    </ng-container>
+
+                    <ng-container *ngIf="control.hasError('minlength')">
+                        <span jhiTranslate="entity.validation.minlength" [translateValues]="{min: 5}"></span>
+                    </ng-container>
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item nz-row>
+            <nz-form-control [nzSpan]="12" [nzOffset]="3">
+                <label nz-checkbox formControlName="activated">
+                    <span jhiTranslate="userManagement.activated">Activated</span>
+                </label>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item *ngIf="languages && languages.length > 0">
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="userManagement.langKey">Lang Key</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-select name="langKey" formControlName="langKey">
+                    <nz-option *ngFor="let language of languages" [nzValue]="language"
+                        [nzLabel]="language | findLanguageFromKey"></nz-option>
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="userManagement.profiles">Profiles</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" nzHasFeedback>
+                <nz-select [nzMaxTagCount]="2" [nzMaxTagPlaceholder]="tagPlaceHolder" nzMode="multiple"
+                    name="authorities" formControlName="authorities">
+                    <nz-option *ngFor="let authority of authorities" [nzValue]="authority" [nzLabel]="authority">
+                    </nz-option>
+                </nz-select>
+                <ng-template #tagPlaceHolder let-selectedList>
+                    <span jhiTranslate="entity.select.multSelected"
+                        [translateValues]="{count: selectedList.length}"></span>
+                </ng-template>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-control [nzOffset]="1" [nzSpan]="12">
+                <button type="button" nz-button nzType="default" (click)="previousState()">
+                    <i nz-icon nzType="stop" nzTheme="outline"></i>
+                    <span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button nz-button nzType="primary" [disabled]="!editForm.valid || isSaving">
+                    <i nz-icon nzType="save" nzTheme="outline"></i>
+                    <span jhiTranslate="entity.action.save"> save </span>
+                </button>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="modeloAtividade">
+                <h2><span jhiTranslate="ngzorroApp.modeloAtividade.detail.title">Modelo Atividade</span> {{modeloAtividade.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.modeloAtividade.descricao">Descricao</span></dt>
+                        <dd>
+                            <span>{{modeloAtividade.descricao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.modeloAtividade.atividade">Atividade</span></dt>
+                        <dd>
+                            <span *ngFor="let atividade of modeloAtividade.atividades; let last = last">
+                                <a [routerLink]="['/atividade', atividade?.id, 'view' ]">{{atividade.id}}</a>{{last ? '' : ', '}}
+                            </span>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/modelo-atividade', modeloAtividade.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

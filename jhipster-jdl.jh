@@ -1,0 +1,21 @@
+entity Produto {
+	imagem ImageBlob
+    nome String required
+    descricao TextBlob
+    preco BigDecimal
+    data LocalDate
+    hora Instant
+}
+
+entity Categoria {
+	nome String
+}
+
+
+relationship ManyToMany {
+	Produto to Categoria
+}
+
+dto * with mapstruct
+paginate * with pagination
+filter *

@@ -1,0 +1,11 @@
+id;is_pago;tipo;descricao;valor;data_emissao;data_pagamento;data_vencimento
+1;true;DESPESA;../fake-data/blob/hipster.txt;93621;2020-02-26;2020-02-26;2020-02-26
+2;true;DESPESA;../fake-data/blob/hipster.txt;94735;2020-02-26;2020-02-26;2020-02-26
+3;true;DESPESA;../fake-data/blob/hipster.txt;89481;2020-02-26;2020-02-26;2020-02-26
+4;true;DESPESA;../fake-data/blob/hipster.txt;43860;2020-02-26;2020-02-26;2020-02-26
+5;true;RECEITA;../fake-data/blob/hipster.txt;87178;2020-02-26;2020-02-26;2020-02-26
+6;true;DESPESA;../fake-data/blob/hipster.txt;43365;2020-02-26;2020-02-26;2020-02-26
+7;false;RECEITA;../fake-data/blob/hipster.txt;99633;2020-02-26;2020-02-25;2020-02-26
+8;true;DESPESA;../fake-data/blob/hipster.txt;22056;2020-02-26;2020-02-26;2020-02-26
+9;false;RECEITA;../fake-data/blob/hipster.txt;86827;2020-02-25;2020-02-26;2020-02-26
+10;true;DESPESA;../fake-data/blob/hipster.txt;50484;2020-02-26;2020-02-26;2020-02-26

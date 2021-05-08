@@ -1,0 +1,67 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="anexo">
+                <h2><span jhiTranslate="ngzorroApp.anexo.detail.title">Anexo</span> {{anexo.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.anexo.anexo">Anexo</span></dt>
+                        <dd>
+                            <div *ngIf="anexo.anexo">
+                                <a (click)="openFile(anexo.anexoContentType, anexo.anexo)" jhiTranslate="entity.action.open">open</a>
+                                {{anexo.anexoContentType}}, {{byteSize(anexo.anexo)}}
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.anexo.descricao">Descricao</span></dt>
+                        <dd>
+                            <span>{{anexo.descricao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.anexo.data">Data</span></dt>
+                        <dd>
+                            <span>{{anexo.data}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.anexo.url">Url</span></dt>
+                        <dd>
+                            <span>{{anexo.url}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.anexo.urlThumbnail">Url Thumbnail</span></dt>
+                        <dd>
+                            <span>{{anexo.urlThumbnail}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.anexo.animal">Animal</span></dt>
+                        <dd>
+                            <div *ngIf="anexo.animalId">
+                                <a [routerLink]="['/animal', anexo.animalId, 'view']">{{anexo.animalId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/anexo', anexo.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

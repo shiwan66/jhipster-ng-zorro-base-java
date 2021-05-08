@@ -1,0 +1,23 @@
+{
+  "ngzorroApp": {
+    "modeloAtividade": {
+      "home": {
+        "title": "Modelo Atividades",
+        "createLabel": "Criar novo Modelo Atividade",
+        "createOrEditLabel": "Criar ou editar Modelo Atividade",
+        "notFound": "Nenhum Modelo Atividade encontrado"
+      },
+      "created": "Um novo Modelo Atividade foi criado com o identificador {{ param }}",
+      "updated": "Um Modelo Atividade foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Modelo Atividade foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Modelo Atividade {{ id }}?"
+      },
+      "detail": {
+        "title": "Modelo Atividade"
+      },
+      "descricao": "Descricao",
+      "atividade": "Atividade"
+    }
+  }
+}

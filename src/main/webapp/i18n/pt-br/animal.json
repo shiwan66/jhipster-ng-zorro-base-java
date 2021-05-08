@@ -1,0 +1,41 @@
+{
+  "ngzorroApp": {
+    "animal": {
+      "home": {
+        "title": "Animals",
+        "createLabel": "Criar novo Animal",
+        "createOrEditLabel": "Criar ou editar Animal",
+        "notFound": "Nenhum Animal encontrado"
+      },
+      "created": "Um novo Animal foi criado com o identificador {{ param }}",
+      "updated": "Um Animal foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal"
+      },
+      "foto": "Foto",
+      "fotoUrl": "Foto Url",
+      "nome": "Nome",
+      "sexo": "Sexo",
+      "pelagem": "Pelagem",
+      "temperamento": "Temperamento",
+      "emAtendimento": "Em Atendimento",
+      "dataNascimento": "Data Nascimento",
+      "atendimento": "Atendimento",
+      "tipoVacina": "Tipo Vacina",
+      "animalAlteracao": "Animal Alteracao",
+      "animalVermifugo": "Animal Vermifugo",
+      "animalCarrapaticida": "Animal Carrapaticida",
+      "observacao": "Observacao",
+      "anexo": "Anexo",
+      "animalCio": "Animal Cio",
+      "endereco": "Endereco",
+      "veterinario": "Veterinario",
+      "raca": "Raca",
+      "tutor": "Tutor"
+    }
+  }
+}

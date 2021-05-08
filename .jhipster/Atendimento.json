@@ -1,0 +1,59 @@
+{
+    "name": "Atendimento",
+    "fields": [
+        {
+            "fieldName": "situacao",
+            "fieldType": "AtendimentoSituacao",
+            "fieldValues": "EM_ANDAMENTO,CONCLUIDO,CANCELADO"
+        },
+        {
+            "fieldName": "dataDeChegada",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "dataDeSaida",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "observacao",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "atividade",
+            "otherEntityRelationshipName": "atendimento",
+            "relationshipName": "atividade"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "venda",
+            "otherEntityRelationshipName": "atendimento",
+            "relationshipName": "venda"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "anexoAtendimento",
+            "otherEntityRelationshipName": "atendimento",
+            "relationshipName": "anexo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "animal",
+            "otherEntityRelationshipName": "atendimento",
+            "relationshipName": "animal",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230303",
+    "entityTableName": "atendimento",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

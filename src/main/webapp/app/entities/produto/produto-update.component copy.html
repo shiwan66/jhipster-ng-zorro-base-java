@@ -1,0 +1,123 @@
+<div>
+    <nz-page-header [nzGhost]="false">
+        <nz-page-header-title>
+            <span jhiTranslate="ngzorroApp.produto.home.createOrEditLabel">Create or edit a User</span>
+        </nz-page-header-title>
+    </nz-page-header>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <form name="editForm" (ngSubmit)="save()" [formGroup]="editForm">
+        <nz-form-item *ngIf="user.id">
+            <nz-form-label [nzSpan]="3">
+                <span jhiTranslate="global.field.id">ID</span>
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12" [nzErrorTip]="loginErrorTpl">
+                <input nz-input formControlName="id" readonly disabled="true" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-upload
+            class="avatar-uploader"
+            nzAction="https://jsonplaceholder.typicode.com/posts/"
+            nzName="avatar"
+            nzListType="picture-card"
+            [nzShowUploadList]="false"
+            [nzBeforeUpload]="beforeUpload"
+            (nzChange)="handleChange($event)"
+          >
+            <ng-container *ngIf="!avatarUrl">
+              <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+              <div class="ant-upload-text">Upload</div>
+            </ng-container>
+            <img *ngIf="avatarUrl" [src]="avatarUrl" class="avatar" />
+          </nz-upload>
+        </nz-form-item>
+
+        
+    </form>
+
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+        <h2 id="jhi-produto-heading" jhiTranslate="ngzorroApp.produto.home.createOrEditLabel">Create or edit a Produto</h2>
+        <div class="row">
+            <jhi-alert-error></jhi-alert-error>
+            <div class="form-group col-md-12" [hidden]="!editForm.get('id').value">
+                <label for="id" jhiTranslate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                    readonly />
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="form-control-label" jhiTranslate="ngzorroApp.produto.imagem" for="field_imagem">Imagem</label>
+                <div>
+                    <img [src]="'data:' + editForm.get('imagemContentType').value + ';base64,' + editForm.get('imagem').value" style="max-height: 100px;" *ngIf="editForm.get('imagem').value" alt="produto image"/>
+                    <div *ngIf="editForm.get('imagem').value" class="form-text text-danger clearfix">
+                        <span class="pull-left">{{editForm.get('imagemContentType').value}}, {{byteSize(editForm.get('imagem').value)}}</span>
+                        <button type="button" (click)="clearInputImage('imagem', 'imagemContentType', 'file_imagem')" class="btn btn-secondary btn-xs pull-right">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                        </button>
+                    </div>
+                    <input type="file" id="file_imagem" (change)="setFileData($event, 'imagem', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                </div>
+                <input type="hidden" class="form-control" name="imagem" id="field_imagem"
+                       formControlName="imagem"/>
+                <input type="hidden" class="form-control" name="imagemContentType" id="field_imagemContentType"
+                       formControlName="imagemContentType" />
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" jhiTranslate="ngzorroApp.produto.nome" for="field_nome">Nome</label>
+                <input type="text" class="form-control" name="nome" id="field_nome"
+                       formControlName="nome"/>
+                <div *ngIf="editForm.get('nome').invalid && (editForm.get('nome').dirty || editForm.get('nome').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('nome').errors.required" jhiTranslate="entity.validation.required">
+                    This field is required.
+                    </small>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" jhiTranslate="ngzorroApp.produto.descricao" for="field_descricao">Descricao</label>
+                <textarea class="form-control" name="descricao" id="field_descricao"
+                          formControlName="descricao"></textarea>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" jhiTranslate="ngzorroApp.produto.preco" for="field_preco">Preco</label>
+                <input type="number" class="form-control" name="preco" id="field_preco"
+                       formControlName="preco"/>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" jhiTranslate="ngzorroApp.produto.data" for="field_data">Data</label>
+                <div class="input-group col-md-6">
+                    <input id="field_data" type="text" class="form-control" name="data" ngbDatepicker  #dataDp="ngbDatepicker" formControlName="data"/>
+                    <span class="input-group-append">
+                        <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                    </span>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="form-control-label" jhiTranslate="ngzorroApp.produto.hora" for="field_hora">Hora</label>
+                <div class="d-flex">
+                    <input id="field_hora" type="datetime-local" class="form-control" name="hora" formControlName="hora" placeholder="YYYY-MM-DD HH:mm"/>
+                </div>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label jhiTranslate="ngzorroApp.produto.categoria" for="field_categorias">Categoria</label>
+                <select class="form-control" id="field_categorias" multiple name="categorias" formControlName="categorias">
+                    <option [ngValue]="getSelected(editForm.get('categorias').value, categoriaOption)" *ngFor="let categoriaOption of categorias; trackBy: trackById">{{categoriaOption.id}}</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+            </button>
+            <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </form>
+      
+</div>
+

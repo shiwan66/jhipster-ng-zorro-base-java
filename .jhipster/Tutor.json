@@ -1,0 +1,89 @@
+{
+    "name": "Tutor",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sobrenome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefone1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefone2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "fotoUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cpf",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sexo",
+            "fieldType": "Sexo",
+            "fieldValues": "MASCULINO,FEMININO"
+        },
+        {
+            "fieldName": "dataCadastro",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "tutor",
+            "relationshipName": "user",
+            "otherEntityField": "firstName",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "titulo",
+            "otherEntityRelationshipName": "tutor",
+            "relationshipName": "titulo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "animal",
+            "otherEntityRelationshipName": "tutor",
+            "relationshipName": "animal"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "endereco",
+            "otherEntityRelationshipName": "tutor",
+            "relationshipName": "endereco",
+            "otherEntityField": "logradouro"
+        }
+    ],
+    "changelogDate": "20200226230253",
+    "entityTableName": "tutor",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

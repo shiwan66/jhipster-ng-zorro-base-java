@@ -1,0 +1,46 @@
+{
+    "name": "Fornecedor",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pontoReferencia",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "titulo",
+            "otherEntityRelationshipName": "fornecedor",
+            "relationshipName": "titulo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "endereco",
+            "otherEntityRelationshipName": "fornecedor",
+            "relationshipName": "endereco",
+            "otherEntityField": "logradouro"
+        }
+    ],
+    "changelogDate": "20200226230309",
+    "entityTableName": "fornecedor",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

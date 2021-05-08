@@ -1,0 +1,127 @@
+{
+    "name": "Animal",
+    "fields": [
+        {
+            "fieldName": "foto",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "fotoUrl",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sexo",
+            "fieldType": "AnimalSexo",
+            "fieldValues": "MACHO,FEMEA"
+        },
+        {
+            "fieldName": "pelagem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "temperamento",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emAtendimento",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "dataNascimento",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "atendimento",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "atendimento"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "animalVacina",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "tipoVacina"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "animalAlteracao",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "animalAlteracao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "animalVermifugo",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "animalVermifugo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "animalCarrapaticida",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "animalCarrapaticida"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "animalObservacao",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "observacao"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "anexo",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "anexo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "animalCio",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "animalCio"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "endereco",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "endereco",
+            "otherEntityField": "logradouro"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "animalVeterinario",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "veterinario",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "raca",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "raca",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tutor",
+            "otherEntityRelationshipName": "animal",
+            "relationshipName": "tutor",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230250",
+    "entityTableName": "animal",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

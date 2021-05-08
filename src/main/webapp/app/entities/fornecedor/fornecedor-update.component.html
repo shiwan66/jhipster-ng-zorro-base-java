@@ -1,0 +1,54 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-fornecedor-heading" jhiTranslate="ngzorroApp.fornecedor.home.createOrEditLabel">Create or edit a Fornecedor</h2>
+                <div class="row">
+                    <jhi-alert-error></jhi-alert-error>
+                    <div class="form-group col-md-12" [hidden]="!editForm.get('id').value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                            readonly />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.fornecedor.nome" for="field_nome">Nome</label>
+                        <input type="text" class="form-control" name="nome" id="field_nome"
+                               formControlName="nome"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.fornecedor.telefone" for="field_telefone">Telefone</label>
+                        <input type="text" class="form-control" name="telefone" id="field_telefone"
+                               formControlName="telefone"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.fornecedor.email" for="field_email">Email</label>
+                        <input type="text" class="form-control" name="email" id="field_email"
+                               formControlName="email"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.fornecedor.pontoReferencia" for="field_pontoReferencia">Ponto Referencia</label>
+                        <input type="text" class="form-control" name="pontoReferencia" id="field_pontoReferencia"
+                               formControlName="pontoReferencia"/>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.fornecedor.endereco" for="field_endereco">Endereco</label>
+                        <select class="form-control" id="field_endereco" name="endereco" formControlName="enderecoId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="enderecoOption.id" *ngFor="let enderecoOption of enderecos; trackBy: trackById">{{enderecoOption.logradouro}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

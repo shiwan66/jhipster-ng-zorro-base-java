@@ -1,0 +1,75 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="produto">
+                <h2><span jhiTranslate="ngzorroApp.produto.detail.title">Produto</span> {{produto.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.produto.imagem">Imagem</span></dt>
+                        <dd>
+                            <div *ngIf="produto.imagem">
+                                <a (click)="openFile(produto.imagemContentType, produto.imagem)">
+                                    <img [src]="'data:' + produto.imagemContentType + ';base64,' + produto.imagem" style="max-width: 100%;" alt="produto image"/>
+                                </a>
+                                {{produto.imagemContentType}}, {{byteSize(produto.imagem)}}
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.produto.nome">Nome</span></dt>
+                        <dd>
+                            <span>{{produto.nome}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.produto.descricao">Descricao</span></dt>
+                        <dd>
+                            <span>{{produto.descricao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.produto.preco">Preco</span></dt>
+                        <dd>
+                            <span>{{produto.preco}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.produto.data">Data</span></dt>
+                        <dd>
+                            <span>{{produto.data}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.produto.hora">Hora</span></dt>
+                        <dd>
+                            <span>{{produto.hora}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.produto.categoria">Categoria</span></dt>
+                        <dd>
+                            <span *ngFor="let categoria of produto.categorias; let last = last">
+                                <a [routerLink]="['/categoria', categoria?.id, 'view' ]">{{categoria.id}}</a>{{last ? '' : ', '}}
+                            </span>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/produto', produto.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

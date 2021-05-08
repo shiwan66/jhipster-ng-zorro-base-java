@@ -1,0 +1,24 @@
+{
+  "ngzorroApp": {
+    "animalVermifugo": {
+      "home": {
+        "title": "Animal Vermifugos",
+        "createLabel": "Criar novo Animal Vermifugo",
+        "createOrEditLabel": "Criar ou editar Animal Vermifugo",
+        "notFound": "Nenhum Animal Vermifugo encontrado"
+      },
+      "created": "Um novo Animal Vermifugo foi criado com o identificador {{ param }}",
+      "updated": "Um Animal Vermifugo foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal Vermifugo foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal Vermifugo {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Vermifugo"
+      },
+      "nome": "Nome",
+      "dataDaAplicacao": "Data Da Aplicacao",
+      "animal": "Animal"
+    }
+  }
+}

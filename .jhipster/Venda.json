@@ -1,0 +1,56 @@
+{
+    "name": "Venda",
+    "fields": [
+        {
+            "fieldName": "observacao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "dataDaCompra",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "dataDoPagamento",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "desconto",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "situacao",
+            "fieldType": "TipoSituacaoDoLancamento",
+            "fieldValues": "PAGO,PAGAMENTOPENDENTE,CANCELADO"
+        },
+        {
+            "fieldName": "valorTotal",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "vendaConsumo",
+            "otherEntityRelationshipName": "venda",
+            "relationshipName": "vendaConsumo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "atendimento",
+            "otherEntityRelationshipName": "venda",
+            "relationshipName": "atendimento",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230304",
+    "entityTableName": "venda",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

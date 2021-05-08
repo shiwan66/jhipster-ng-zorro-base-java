@@ -1,0 +1,45 @@
+{
+    "name": "AnexoAtendimento",
+    "fields": [
+        {
+            "fieldName": "anexo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "urlThumbnail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "atendimento",
+            "otherEntityRelationshipName": "anexo",
+            "relationshipName": "atendimento",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230308",
+    "entityTableName": "anexo_atendimento",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

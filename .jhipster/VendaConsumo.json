@@ -1,0 +1,43 @@
+{
+    "name": "VendaConsumo",
+    "fields": [
+        {
+            "fieldName": "quantidade",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "valorUnitario",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "valorTotal",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "venda",
+            "otherEntityRelationshipName": "vendaConsumo",
+            "relationshipName": "venda",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "consumo",
+            "otherEntityRelationshipName": "vendaConsumo",
+            "relationshipName": "consumo",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230305",
+    "entityTableName": "venda_consumo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

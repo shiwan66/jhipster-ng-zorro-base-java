@@ -1,0 +1,58 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="fornecedor">
+                <h2><span jhiTranslate="ngzorroApp.fornecedor.detail.title">Fornecedor</span> {{fornecedor.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.fornecedor.nome">Nome</span></dt>
+                        <dd>
+                            <span>{{fornecedor.nome}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.fornecedor.telefone">Telefone</span></dt>
+                        <dd>
+                            <span>{{fornecedor.telefone}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.fornecedor.email">Email</span></dt>
+                        <dd>
+                            <span>{{fornecedor.email}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.fornecedor.pontoReferencia">Ponto Referencia</span></dt>
+                        <dd>
+                            <span>{{fornecedor.pontoReferencia}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.fornecedor.endereco">Endereco</span></dt>
+                        <dd>
+                            <div *ngIf="fornecedor.enderecoId">
+                                <a [routerLink]="['/endereco', fornecedor.enderecoId, 'view']">{{fornecedor.enderecoLogradouro}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/fornecedor', fornecedor.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

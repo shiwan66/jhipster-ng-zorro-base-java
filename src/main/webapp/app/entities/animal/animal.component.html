@@ -1,0 +1,106 @@
+<div class="card jh-card">
+    <h2 id="page-heading">
+        <span jhiTranslate="ngzorroApp.animal.home.title">Animals</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-animal" [routerLink]="['/animal/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ngzorroApp.animal.home.createLabel">
+            Create a new Animal
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="animals?.length === 0">
+        <span jhiTranslate="ngzorroApp.animal.home.notFound">No animals found</span>
+    </div>
+    <div class="table-responsive" *ngIf="animals?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="foto"><span jhiTranslate="ngzorroApp.animal.foto">Foto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="fotoUrl"><span jhiTranslate="ngzorroApp.animal.fotoUrl">Foto Url</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nome"><span jhiTranslate="ngzorroApp.animal.nome">Nome</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="sexo"><span jhiTranslate="ngzorroApp.animal.sexo">Sexo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="pelagem"><span jhiTranslate="ngzorroApp.animal.pelagem">Pelagem</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="temperamento"><span jhiTranslate="ngzorroApp.animal.temperamento">Temperamento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="emAtendimento"><span jhiTranslate="ngzorroApp.animal.emAtendimento">Em Atendimento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dataNascimento"><span jhiTranslate="ngzorroApp.animal.dataNascimento">Data Nascimento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="enderecoLogradouro"><span jhiTranslate="ngzorroApp.animal.endereco">Endereco</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="veterinarioNome"><span jhiTranslate="ngzorroApp.animal.veterinario">Veterinario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="racaNome"><span jhiTranslate="ngzorroApp.animal.raca">Raca</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tutorId"><span jhiTranslate="ngzorroApp.animal.tutor">Tutor</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let animal of animals ;trackBy: trackId">
+                <td><a [routerLink]="['/animal', animal.id, 'view' ]">{{animal.id}}</a></td>
+                <td>
+                    <a *ngIf="animal.foto" (click)="openFile(animal.fotoContentType, animal.foto)">
+                        <img [src]="'data:' + animal.fotoContentType + ';base64,' + animal.foto" style="max-height: 30px;" alt="animal image"/>
+                    </a>
+                    <span *ngIf="animal.foto">{{animal.fotoContentType}}, {{byteSize(animal.foto)}}</span>
+                </td>
+                <td>{{animal.fotoUrl}}</td>
+                <td>{{animal.nome}}</td>
+                <td jhiTranslate="{{'ngzorroApp.AnimalSexo.' + animal.sexo}}">{{animal.sexo}}</td>
+                <td>{{animal.pelagem}}</td>
+                <td>{{animal.temperamento}}</td>
+                <td>{{animal.emAtendimento}}</td>
+                <td>{{animal.dataNascimento | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="animal.enderecoId">
+                        <a [routerLink]="['/endereco', animal.enderecoId , 'view' ]" >{{animal.enderecoLogradouro}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="animal.veterinarioId">
+                        <a [routerLink]="['/animal-veterinario', animal.veterinarioId , 'view' ]" >{{animal.veterinarioNome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="animal.racaId">
+                        <a [routerLink]="['/raca', animal.racaId , 'view' ]" >{{animal.racaNome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="animal.tutorId">
+                        <a [routerLink]="['/tutor', animal.tutorId , 'view' ]" >{{animal.tutorId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/animal', animal.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/animal', animal.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(animal)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="animals?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

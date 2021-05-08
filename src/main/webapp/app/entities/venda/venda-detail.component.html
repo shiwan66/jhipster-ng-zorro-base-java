@@ -1,0 +1,70 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="venda">
+                <h2><span jhiTranslate="ngzorroApp.venda.detail.title">Venda</span> {{venda.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.venda.observacao">Observacao</span></dt>
+                        <dd>
+                            <span>{{venda.observacao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.venda.dataDaCompra">Data Da Compra</span></dt>
+                        <dd>
+                            <span>{{venda.dataDaCompra}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.venda.dataDoPagamento">Data Do Pagamento</span></dt>
+                        <dd>
+                            <span>{{venda.dataDoPagamento}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.venda.desconto">Desconto</span></dt>
+                        <dd>
+                            <span>{{venda.desconto}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.venda.situacao">Situacao</span></dt>
+                        <dd>
+                            <span jhiTranslate="{{'ngzorroApp.TipoSituacaoDoLancamento.' + venda.situacao}}">{{venda.situacao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.venda.valorTotal">Valor Total</span></dt>
+                        <dd>
+                            <span>{{venda.valorTotal}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.venda.atendimento">Atendimento</span></dt>
+                        <dd>
+                            <div *ngIf="venda.atendimentoId">
+                                <a [routerLink]="['/atendimento', venda.atendimentoId, 'view']">{{venda.atendimentoId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/venda', venda.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="movimentacaoDeEstoque">
+                <h2><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.detail.title">Movimentacao De Estoque</span> {{movimentacaoDeEstoque.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.tipo">Tipo</span></dt>
+                        <dd>
+                            <span jhiTranslate="{{'ngzorroApp.TipoMovimentacaoDeEstoque.' + movimentacaoDeEstoque.tipo}}">{{movimentacaoDeEstoque.tipo}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.descricao">Descricao</span></dt>
+                        <dd>
+                            <span>{{movimentacaoDeEstoque.descricao}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.data">Data</span></dt>
+                        <dd>
+                            <span>{{movimentacaoDeEstoque.data}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.quantidade">Quantidade</span></dt>
+                        <dd>
+                            <span>{{movimentacaoDeEstoque.quantidade}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.consumo">Consumo</span></dt>
+                        <dd>
+                            <div *ngIf="movimentacaoDeEstoque.consumoId">
+                                <a [routerLink]="['/consumo', movimentacaoDeEstoque.consumoId, 'view']">{{movimentacaoDeEstoque.consumoId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/movimentacao-de-estoque', movimentacaoDeEstoque.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

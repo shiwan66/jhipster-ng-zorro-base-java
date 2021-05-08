@@ -1,0 +1,77 @@
+<div>
+    <div *ngIf="user">
+        <nz-page-header [nzGhost]="false">
+            <nz-page-header-title>
+               <span jhiTranslate="userManagement.detail.title">User</span> [<b>{{user.login}}</b>]
+            </nz-page-header-title>
+        </nz-page-header>
+
+        <dl nz-row style="padding: 25px;">
+            
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.login">Login</span></dt>
+                <dd>
+                    <span>{{user.login}}</span>
+                    <jhi-boolean
+                        [value]="user.activated"
+                        [textTrue]="'userManagement.activated' | translate"
+                        [textFalse]="'userManagement.deactivated' | translate">
+                    </jhi-boolean>
+                </dd>
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.firstName">First Name</span></dt>
+                <dd>{{user.firstName}}</dd>
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.lastName">Last Name</span></dt>
+                <dd>{{user.lastName}}</dd>
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.email">Email</span></dt>
+                <dd>{{user.email}}</dd>
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.langKey">Lang Key</span></dt>
+                <dd>{{user.langKey}}</dd>
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.createdBy">Created By</span></dt>
+                <dd>{{user.createdBy}}</dd>       
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.createdDate">Created Date</span></dt>
+                <dd>{{user.createdDate | date:'dd/MM/yy HH:mm' }}</dd>        
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.lastModifiedBy">Last Modified By</span></dt>
+                <dd>{{user.lastModifiedBy}}</dd>
+            </div>
+            <div nz-col nzMd="8" nzSm="12" >
+                <dt><span jhiTranslate="userManagement.lastModifiedDate">Last Modified Date</span></dt>
+                <dd>{{user.lastModifiedDate | date:'dd/MM/yy HH:mm'}}</dd>
+            </div>
+            <div nz-col nzMd="24" nzSm="24" >
+                <dt><span jhiTranslate="userManagement.profiles">Profiles</span></dt>
+                <dd>
+                    <ul class="list-unstyled">
+                        <li style="list-style: none;" *ngFor="let authority of user.authorities">
+                            <nz-badge nzColor="#108ee9" [nzText]="authority"></nz-badge>
+                        </li>
+                    </ul>
+                </dd>
+            </div> 
+        </dl>
+
+        <div style="padding: 25px;">
+            <br /> <br />
+            <button nz-button nzType="default" routerLink="../../">
+                <i nz-icon nzType="arrow-left" nzTheme="outline"></i>
+                <span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+        </div>
+        
+    </div>
+</div>
+
+

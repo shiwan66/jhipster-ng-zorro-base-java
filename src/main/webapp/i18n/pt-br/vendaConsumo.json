@@ -1,0 +1,26 @@
+{
+  "ngzorroApp": {
+    "vendaConsumo": {
+      "home": {
+        "title": "Venda Consumos",
+        "createLabel": "Criar novo Venda Consumo",
+        "createOrEditLabel": "Criar ou editar Venda Consumo",
+        "notFound": "Nenhum Venda Consumo encontrado"
+      },
+      "created": "Um novo Venda Consumo foi criado com o identificador {{ param }}",
+      "updated": "Um Venda Consumo foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Venda Consumo foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Venda Consumo {{ id }}?"
+      },
+      "detail": {
+        "title": "Venda Consumo"
+      },
+      "quantidade": "Quantidade",
+      "valorUnitario": "Valor Unitario",
+      "valorTotal": "Valor Total",
+      "venda": "Venda",
+      "consumo": "Consumo"
+    }
+  }
+}

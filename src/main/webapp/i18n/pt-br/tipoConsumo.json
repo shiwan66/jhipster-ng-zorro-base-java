@@ -1,0 +1,9 @@
+{
+  "ngzorroApp": {
+    "TipoConsumo": {
+      "null": "",
+      "PRODUTO": "PRODUTO",
+      "SERVICO": "SERVICO"
+    }
+  }
+}

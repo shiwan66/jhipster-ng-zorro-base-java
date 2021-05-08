@@ -1,0 +1,60 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="vendaConsumo">
+                <h2><span jhiTranslate="ngzorroApp.vendaConsumo.detail.title">Venda Consumo</span> {{vendaConsumo.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.vendaConsumo.quantidade">Quantidade</span></dt>
+                        <dd>
+                            <span>{{vendaConsumo.quantidade}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.vendaConsumo.valorUnitario">Valor Unitario</span></dt>
+                        <dd>
+                            <span>{{vendaConsumo.valorUnitario}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.vendaConsumo.valorTotal">Valor Total</span></dt>
+                        <dd>
+                            <span>{{vendaConsumo.valorTotal}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.vendaConsumo.venda">Venda</span></dt>
+                        <dd>
+                            <div *ngIf="vendaConsumo.vendaId">
+                                <a [routerLink]="['/venda', vendaConsumo.vendaId, 'view']">{{vendaConsumo.vendaId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.vendaConsumo.consumo">Consumo</span></dt>
+                        <dd>
+                            <div *ngIf="vendaConsumo.consumoId">
+                                <a [routerLink]="['/consumo', vendaConsumo.consumoId, 'view']">{{vendaConsumo.consumoId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/venda-consumo', vendaConsumo.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,24 @@
+{
+  "ngzorroApp": {
+    "animalVacina": {
+      "home": {
+        "title": "Animal Vacinas",
+        "createLabel": "Criar novo Animal Vacina",
+        "createOrEditLabel": "Criar ou editar Animal Vacina",
+        "notFound": "Nenhum Animal Vacina encontrado"
+      },
+      "created": "Um novo Animal Vacina foi criado com o identificador {{ param }}",
+      "updated": "Um Animal Vacina foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal Vacina foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal Vacina {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Vacina"
+      },
+      "dataDaAplicacao": "Data Da Aplicacao",
+      "animalTipoDeVacina": "Animal Tipo De Vacina",
+      "animal": "Animal"
+    }
+  }
+}

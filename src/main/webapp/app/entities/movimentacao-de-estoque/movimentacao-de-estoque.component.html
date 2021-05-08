@@ -1,0 +1,75 @@
+<div class="card jh-card">
+    <h2 id="page-heading">
+        <span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.home.title">Movimentacao De Estoques</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-movimentacao-de-estoque" [routerLink]="['/movimentacao-de-estoque/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ngzorroApp.movimentacaoDeEstoque.home.createLabel">
+            Create a new Movimentacao De Estoque
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="movimentacaoDeEstoques?.length === 0">
+        <span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.home.notFound">No movimentacaoDeEstoques found</span>
+    </div>
+    <div class="table-responsive" *ngIf="movimentacaoDeEstoques?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="tipo"><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.tipo">Tipo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="descricao"><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.descricao">Descricao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="data"><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.data">Data</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="quantidade"><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.quantidade">Quantidade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="consumoId"><span jhiTranslate="ngzorroApp.movimentacaoDeEstoque.consumo">Consumo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let movimentacaoDeEstoque of movimentacaoDeEstoques ;trackBy: trackId">
+                <td><a [routerLink]="['/movimentacao-de-estoque', movimentacaoDeEstoque.id, 'view' ]">{{movimentacaoDeEstoque.id}}</a></td>
+                <td jhiTranslate="{{'ngzorroApp.TipoMovimentacaoDeEstoque.' + movimentacaoDeEstoque.tipo}}">{{movimentacaoDeEstoque.tipo}}</td>
+                <td>{{movimentacaoDeEstoque.descricao}}</td>
+                <td>{{movimentacaoDeEstoque.data | date:'medium'}}</td>
+                <td>{{movimentacaoDeEstoque.quantidade}}</td>
+                <td>
+                    <div *ngIf="movimentacaoDeEstoque.consumoId">
+                        <a [routerLink]="['/consumo', movimentacaoDeEstoque.consumoId , 'view' ]" >{{movimentacaoDeEstoque.consumoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/movimentacao-de-estoque', movimentacaoDeEstoque.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/movimentacao-de-estoque', movimentacaoDeEstoque.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(movimentacaoDeEstoque)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="movimentacaoDeEstoques?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

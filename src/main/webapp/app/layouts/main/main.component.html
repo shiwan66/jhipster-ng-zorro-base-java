@@ -1,0 +1,178 @@
+<!-- <jhi-page-ribbon></jhi-page-ribbon> -->
+<!-- <div *ngIf="isAuthenticate()">
+    <router-outlet name="navbar"></router-outlet>
+</div>
+<div [ngClass]="isAuthenticate() ? 'container-fluid' : 'div-100'">
+        <router-outlet></router-outlet>
+    <jhi-footer *ngIf="isAuthenticate()"></jhi-footer>
+</div> -->
+
+<nz-layout class="app-layout">
+  <!-- sidebar -->
+  <nz-sider *ngIf="isAuthenticate()" class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <a href="https://ng.ant.design/" target="_blank">
+        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <h1>Sistema de teste</h1>
+      </a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? (getNameMenu('global.menu.home') | async) : ''" nzSelected>
+        <a routerLink="/painel">
+          <i nz-icon nzType="bar-chart" nzTheme="outline"></i>
+          <span jhiTranslate="global.menu.home">Home</span>
+        </a>
+      </li>
+      <li nz-submenu [nzTitle]="(getNameMenu('global.menu.entities.main') | async)" nzIcon="unordered-list">
+        <ul>
+          <!-- <li nz-menu-item nzMatchRouter>
+            <a routerLink="/welcome">Welcome</a>
+          </li> -->
+        </ul>
+      </li>
+      <li *jhiHasAnyAuthority="'ROLE_ADMIN'" nz-submenu [nzTitle]="(getNameMenu('global.menu.admin.main') | async)" nzIcon="user-add">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="admin/user-management">
+              <i nz-icon nzType="user" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.userManagement">User management</span>
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="admin/metrics">
+              <i nz-icon nzType="dashboard" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="admin/health">
+              <i nz-icon nzType="heart" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.health">Health</span>
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="admin/configuration">
+              <i nz-icon nzType="unordered-list" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="admin/audits">
+              <i nz-icon nzType="bell" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.audits">Audits</span>
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="admin/logs">
+              <i nz-icon nzType="code" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.logs">Logs</span>
+            </a>
+          </li>
+          <li *ngIf="swaggerEnabled" nz-menu-item nzMatchRouter>
+            <a routerLink="admin/docs">
+              <i nz-icon nzType="book" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.apidocs">API</span>
+            </a>
+          </li>
+          <li *ngIf="!inProduction" nz-menu-item nzMatchRouter>
+            <a href="./h2-console" target="_tab">
+              <i nz-icon nzType="database" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.database">Database</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li *ngIf="languages && languages.length > 1" nz-submenu [nzTitle]="(getNameMenu('global.menu.language') | async)" nzIcon="flag">
+        <ul>
+          <li nz-menu-item nzMatchRouter *ngFor="let language of languages">
+            <a  [jhiActiveMenu]="language" href="javascript:void(0);" (click)="changeLanguage(language);">{{language | findLanguageFromKey}}</a>
+          </li>
+        </ul>
+      </li>
+
+      <li nz-submenu [nzTitle]="(getNameMenu('global.menu.account.main') | async)" nzIcon="user">
+        <ul>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="account/settings">
+              <i nz-icon nzType="tool" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.account.settings">Settings</span>
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="account/password">
+              <i nz-icon nzType="lock" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.account.password">Password</span>
+            </a>
+          </li>
+          <li nz-menu-item nzMatchRouter>
+            <a (click)="logout()">
+              <i nz-icon nzType="logout" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.account.logout">Sign out</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nz-sider>
+  <!-- end sidebar -->
+  <nz-layout>
+    <nz-header *ngIf="isAuthenticate()">
+      <div class="app-header">
+        
+
+        <div nz-row>
+          <div nz-col nzMd="18" nzXs="18" nzLg="20">
+            <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+            </span>
+          </div>
+          <div nz-col nzMd="3" nzXs="3" nzLg="2">
+            <div class="">
+              <ul nz-menu nzTheme="light" nzMode="horizontal">
+                <li nz-submenu [nzTitle]="(getNameMenu('global.menu.account.main') | async)" nzIcon="user">
+                  <ul>
+                    <li nz-menu-item nzMatchRouter>
+                      <a routerLink="account/settings">
+                        <i nz-icon nzType="tool" nzTheme="outline"></i>
+                        <span jhiTranslate="global.menu.account.settings">Settings</span>
+                      </a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                      <a routerLink="account/password">
+                        <i nz-icon nzType="lock" nzTheme="outline"></i>
+                        <span jhiTranslate="global.menu.account.password">Password</span>
+                      </a>
+                    </li>
+                    <li nz-menu-item nzMatchRouter>
+                      <a (click)="logout()">
+                        <i nz-icon nzType="logout" nzTheme="outline"></i>
+                        <span jhiTranslate="global.menu.account.logout">Sign out</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div nz-col nzMd="3" nzLg="2" nzXs="3" *ngIf="imgUrl">
+            <div [ngStyle]="{'background-image': 'url('+imgUrl+')'}" class="imgUrl-profile"></div>
+          </div>
+        </div>
+
+       
+        
+      </div>
+      
+      
+    </nz-header>
+
+    <nz-content [ngClass]="isAuthenticate() ? 'content' : ''">
+      <div [ngClass]="isAuthenticate() ? 'inner-content' : 'content-login'">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+    <!-- <jhi-footer *ngIf="isAuthenticate()"></jhi-footer> -->
+  </nz-layout>
+</nz-layout>

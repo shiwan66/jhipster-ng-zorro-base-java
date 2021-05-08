@@ -1,0 +1,27 @@
+{
+  "ngzorroApp": {
+    "consumo": {
+      "home": {
+        "title": "Consumos",
+        "createLabel": "Criar novo Consumo",
+        "createOrEditLabel": "Criar ou editar Consumo",
+        "notFound": "Nenhum Consumo encontrado"
+      },
+      "created": "Um novo Consumo foi criado com o identificador {{ param }}",
+      "updated": "Um Consumo foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Consumo foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Consumo {{ id }}?"
+      },
+      "detail": {
+        "title": "Consumo"
+      },
+      "nome": "Nome",
+      "tipo": "Tipo",
+      "estoque": "Estoque",
+      "valorUnitario": "Valor Unitario",
+      "vendaConsumo": "Venda Consumo",
+      "movimentacaoDeEstoque": "Movimentacao De Estoque"
+    }
+  }
+}

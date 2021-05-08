@@ -1,0 +1,11 @@
+id;tipo;descricao;data;quantidade
+1;SAIDA;../fake-data/blob/hipster.txt;2020-02-26T06:26:00;63723
+2;SAIDA;../fake-data/blob/hipster.txt;2020-02-25T23:20:38;5159
+3;SAIDA;../fake-data/blob/hipster.txt;2020-02-26T09:25:02;47321
+4;ENTRADA;../fake-data/blob/hipster.txt;2020-02-26T00:51:45;11528
+5;ENTRADA;../fake-data/blob/hipster.txt;2020-02-26T02:46:43;45514
+6;SAIDA;../fake-data/blob/hipster.txt;2020-02-26T22:09:34;65016
+7;ENTRADA;../fake-data/blob/hipster.txt;2020-02-26T21:12:03;88499
+8;SAIDA;../fake-data/blob/hipster.txt;2020-02-26T15:28:51;80397
+9;SAIDA;../fake-data/blob/hipster.txt;2020-02-26T08:01:35;52016
+10;ENTRADA;../fake-data/blob/hipster.txt;2020-02-26T02:09:56;99034

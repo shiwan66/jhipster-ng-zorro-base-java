@@ -1,0 +1,46 @@
+{
+    "name": "Consumo",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tipo",
+            "fieldType": "TipoConsumo",
+            "fieldValues": "PRODUTO,SERVICO"
+        },
+        {
+            "fieldName": "estoque",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "valorUnitario",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "vendaConsumo",
+            "otherEntityRelationshipName": "consumo",
+            "relationshipName": "vendaConsumo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "movimentacaoDeEstoque",
+            "otherEntityRelationshipName": "consumo",
+            "relationshipName": "movimentacaoDeEstoque"
+        }
+    ],
+    "changelogDate": "20200226230302",
+    "entityTableName": "consumo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

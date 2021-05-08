@@ -1,0 +1,42 @@
+{
+    "name": "MovimentacaoDeEstoque",
+    "fields": [
+        {
+            "fieldName": "tipo",
+            "fieldType": "TipoMovimentacaoDeEstoque",
+            "fieldValues": "ENTRADA,SAIDA"
+        },
+        {
+            "fieldName": "descricao",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "quantidade",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "consumo",
+            "otherEntityRelationshipName": "movimentacaoDeEstoque",
+            "relationshipName": "consumo",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230306",
+    "entityTableName": "movimentacao_de_estoque",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

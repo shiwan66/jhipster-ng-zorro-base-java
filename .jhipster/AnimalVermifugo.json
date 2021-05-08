@@ -1,0 +1,32 @@
+{
+    "name": "AnimalVermifugo",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dataDaAplicacao",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "animal",
+            "otherEntityRelationshipName": "animalVermifugo",
+            "relationshipName": "animal",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200226230259",
+    "entityTableName": "animal_vermifugo",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

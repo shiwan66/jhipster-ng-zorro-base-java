@@ -1,0 +1,9 @@
+{
+  "ngzorroApp": {
+    "TipoTitulo": {
+      "null": "",
+      "RECEITA": "RECEITA",
+      "DESPESA": "DESPESA"
+    }
+  }
+}

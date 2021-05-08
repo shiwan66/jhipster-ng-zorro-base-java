@@ -1,0 +1,105 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="tutor">
+                <h2><span jhiTranslate="ngzorroApp.tutor.detail.title">Tutor</span> {{tutor.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.nome">Nome</span></dt>
+                        <dd>
+                            <span>{{tutor.nome}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.sobrenome">Sobrenome</span></dt>
+                        <dd>
+                            <span>{{tutor.sobrenome}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.telefone1">Telefone 1</span></dt>
+                        <dd>
+                            <span>{{tutor.telefone1}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.telefone2">Telefone 2</span></dt>
+                        <dd>
+                            <span>{{tutor.telefone2}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.email">Email</span></dt>
+                        <dd>
+                            <span>{{tutor.email}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.foto">Foto</span></dt>
+                        <dd>
+                            <div *ngIf="tutor.foto">
+                                <a (click)="openFile(tutor.fotoContentType, tutor.foto)">
+                                    <img [src]="'data:' + tutor.fotoContentType + ';base64,' + tutor.foto" style="max-width: 100%;" alt="tutor image"/>
+                                </a>
+                                {{tutor.fotoContentType}}, {{byteSize(tutor.foto)}}
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.fotoUrl">Foto Url</span></dt>
+                        <dd>
+                            <span>{{tutor.fotoUrl}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.cpf">Cpf</span></dt>
+                        <dd>
+                            <span>{{tutor.cpf}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.sexo">Sexo</span></dt>
+                        <dd>
+                            <span jhiTranslate="{{'ngzorroApp.Sexo.' + tutor.sexo}}">{{tutor.sexo}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.dataCadastro">Data Cadastro</span></dt>
+                        <dd>
+                            <span>{{tutor.dataCadastro}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.user">User</span></dt>
+                        <dd>
+                            {{tutor.userFirstName}}
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.tutor.endereco">Endereco</span></dt>
+                        <dd>
+                            <div *ngIf="tutor.enderecoId">
+                                <a [routerLink]="['/endereco', tutor.enderecoId, 'view']">{{tutor.enderecoLogradouro}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/tutor', tutor.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

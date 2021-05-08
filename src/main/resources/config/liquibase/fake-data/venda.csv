@@ -1,0 +1,11 @@
+id;observacao;data_da_compra;data_do_pagamento;desconto;situacao;valor_total
+1;../fake-data/blob/hipster.txt;2020-02-26T20:13:18;2020-02-26T03:29:12;57651;PAGAMENTOPENDENTE;49746
+2;../fake-data/blob/hipster.txt;2020-02-26T03:08:03;2020-02-26T05:45:47;20642;PAGO;26368
+3;../fake-data/blob/hipster.txt;2020-02-26T01:26:51;2020-02-26T16:39:06;87389;PAGO;57329
+4;../fake-data/blob/hipster.txt;2020-02-26T01:06:07;2020-02-26T02:56:00;41877;PAGO;35387
+5;../fake-data/blob/hipster.txt;2020-02-26T19:03:25;2020-02-26T00:02:27;73803;PAGAMENTOPENDENTE;77098
+6;../fake-data/blob/hipster.txt;2020-02-26T17:09:33;2020-02-26T21:24:35;38929;PAGO;61040
+7;../fake-data/blob/hipster.txt;2020-02-26T09:27:15;2020-02-26T00:15:52;47605;CANCELADO;48375
+8;../fake-data/blob/hipster.txt;2020-02-26T17:53:21;2020-02-26T16:34:11;3118;PAGO;84640
+9;../fake-data/blob/hipster.txt;2020-02-26T11:08:06;2020-02-26T00:07:20;59684;CANCELADO;47423
+10;../fake-data/blob/hipster.txt;2020-02-26T20:29:21;2020-02-26T14:46:57;7513;CANCELADO;59828

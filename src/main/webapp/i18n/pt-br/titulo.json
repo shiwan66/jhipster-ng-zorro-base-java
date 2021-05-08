@@ -1,0 +1,30 @@
+{
+  "ngzorroApp": {
+    "titulo": {
+      "home": {
+        "title": "Titulos",
+        "createLabel": "Criar novo Titulo",
+        "createOrEditLabel": "Criar ou editar Titulo",
+        "notFound": "Nenhum Titulo encontrado"
+      },
+      "created": "Um novo Titulo foi criado com o identificador {{ param }}",
+      "updated": "Um Titulo foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Titulo foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Titulo {{ id }}?"
+      },
+      "detail": {
+        "title": "Titulo"
+      },
+      "isPago": "Is Pago",
+      "tipo": "Tipo",
+      "descricao": "Descricao",
+      "valor": "Valor",
+      "dataEmissao": "Data Emissao",
+      "dataPagamento": "Data Pagamento",
+      "dataVencimento": "Data Vencimento",
+      "tutor": "Tutor",
+      "fornecedor": "Fornecedor"
+    }
+  }
+}

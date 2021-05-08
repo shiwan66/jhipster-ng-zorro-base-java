@@ -1,0 +1,10 @@
+{
+  "ngzorroApp": {
+    "TipoSituacaoDoLancamento": {
+      "null": "",
+      "PAGO": "PAGO",
+      "PAGAMENTOPENDENTE": "PAGAMENTOPENDENTE",
+      "CANCELADO": "CANCELADO"
+    }
+  }
+}

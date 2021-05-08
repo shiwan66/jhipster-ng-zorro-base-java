@@ -1,0 +1,52 @@
+{
+    "name": "Atividade",
+    "fields": [
+        {
+            "fieldName": "titulo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inicio",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "termino",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "observacao",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "realizado",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "atendimento",
+            "otherEntityRelationshipName": "atividade",
+            "relationshipName": "atendimento",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "modeloAtividade",
+            "otherEntityRelationshipName": "atividade",
+            "relationshipName": "modeloAtividade",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200226230311",
+    "entityTableName": "atividade",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

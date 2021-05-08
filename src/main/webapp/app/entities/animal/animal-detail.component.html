@@ -1,0 +1,111 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="animal">
+                <h2><span jhiTranslate="ngzorroApp.animal.detail.title">Animal</span> {{animal.id}}</h2>
+                <hr>
+                <jhi-alert-error></jhi-alert-error>
+                <dl class="row jh-entity-details">
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.foto">Foto</span></dt>
+                        <dd>
+                            <div *ngIf="animal.foto">
+                                <a (click)="openFile(animal.fotoContentType, animal.foto)">
+                                    <img [src]="'data:' + animal.fotoContentType + ';base64,' + animal.foto" style="max-width: 100%;" alt="animal image"/>
+                                </a>
+                                {{animal.fotoContentType}}, {{byteSize(animal.foto)}}
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.fotoUrl">Foto Url</span></dt>
+                        <dd>
+                            <span>{{animal.fotoUrl}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.nome">Nome</span></dt>
+                        <dd>
+                            <span>{{animal.nome}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.sexo">Sexo</span></dt>
+                        <dd>
+                            <span jhiTranslate="{{'ngzorroApp.AnimalSexo.' + animal.sexo}}">{{animal.sexo}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.pelagem">Pelagem</span></dt>
+                        <dd>
+                            <span>{{animal.pelagem}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.temperamento">Temperamento</span></dt>
+                        <dd>
+                            <span>{{animal.temperamento}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.emAtendimento">Em Atendimento</span></dt>
+                        <dd>
+                            <span>{{animal.emAtendimento}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.dataNascimento">Data Nascimento</span></dt>
+                        <dd>
+                            <span>{{animal.dataNascimento}}</span>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.endereco">Endereco</span></dt>
+                        <dd>
+                            <div *ngIf="animal.enderecoId">
+                                <a [routerLink]="['/endereco', animal.enderecoId, 'view']">{{animal.enderecoLogradouro}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.veterinario">Veterinario</span></dt>
+                        <dd>
+                            <div *ngIf="animal.veterinarioId">
+                                <a [routerLink]="['/animal-veterinario', animal.veterinarioId, 'view']">{{animal.veterinarioNome}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.raca">Raca</span></dt>
+                        <dd>
+                            <div *ngIf="animal.racaId">
+                                <a [routerLink]="['/raca', animal.racaId, 'view']">{{animal.racaNome}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                    <div class="col-md-4">
+                        <dt><span jhiTranslate="ngzorroApp.animal.tutor">Tutor</span></dt>
+                        <dd>
+                            <div *ngIf="animal.tutorId">
+                                <a [routerLink]="['/tutor', animal.tutorId, 'view']">{{animal.tutorId}}</a>
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+    
+                <button type="submit"
+                        (click)="previousState()"
+                        class="btn btn-info">
+                    <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+                </button>
+    
+                <button type="button"
+                        [routerLink]="['/animal', animal.id, 'edit']"
+                        class="btn btn-primary">
+                    <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

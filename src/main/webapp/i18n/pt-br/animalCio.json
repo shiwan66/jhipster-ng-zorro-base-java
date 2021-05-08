@@ -1,0 +1,24 @@
+{
+  "ngzorroApp": {
+    "animalCio": {
+      "home": {
+        "title": "Animal Cios",
+        "createLabel": "Criar novo Animal Cio",
+        "createOrEditLabel": "Criar ou editar Animal Cio",
+        "notFound": "Nenhum Animal Cio encontrado"
+      },
+      "created": "Um novo Animal Cio foi criado com o identificador {{ param }}",
+      "updated": "Um Animal Cio foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Animal Cio foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Animal Cio {{ id }}?"
+      },
+      "detail": {
+        "title": "Animal Cio"
+      },
+      "dataDoCio": "Data Do Cio",
+      "observacao": "Observacao",
+      "animal": "Animal"
+    }
+  }
+}

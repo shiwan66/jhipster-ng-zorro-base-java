@@ -1,0 +1,113 @@
+<div class="card jh-card">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+                <h2 id="jhi-animal-heading" jhiTranslate="ngzorroApp.animal.home.createOrEditLabel">Create or edit a Animal</h2>
+                <div class="row">
+                    <jhi-alert-error></jhi-alert-error>
+                    <div class="form-group col-md-12" [hidden]="!editForm.get('id').value">
+                        <label for="id" jhiTranslate="global.field.id">ID</label>
+                        <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                            readonly />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.foto" for="field_foto">Foto</label>
+                        <div>
+                            <img [src]="'data:' + editForm.get('fotoContentType').value + ';base64,' + editForm.get('foto').value" style="max-height: 100px;" *ngIf="editForm.get('foto').value" alt="animal image"/>
+                            <div *ngIf="editForm.get('foto').value" class="form-text text-danger clearfix">
+                                <span class="pull-left">{{editForm.get('fotoContentType').value}}, {{byteSize(editForm.get('foto').value)}}</span>
+                                <button type="button" (click)="clearInputImage('foto', 'fotoContentType', 'file_foto')" class="btn btn-secondary btn-xs pull-right">
+                                    <fa-icon [icon]="'times'"></fa-icon>
+                                </button>
+                            </div>
+                            <input type="file" id="file_foto" (change)="setFileData($event, 'foto', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                        </div>
+                        <input type="hidden" class="form-control" name="foto" id="field_foto"
+                               formControlName="foto"/>
+                        <input type="hidden" class="form-control" name="fotoContentType" id="field_fotoContentType"
+                               formControlName="fotoContentType" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.fotoUrl" for="field_fotoUrl">Foto Url</label>
+                        <input type="text" class="form-control" name="fotoUrl" id="field_fotoUrl"
+                               formControlName="fotoUrl"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.nome" for="field_nome">Nome</label>
+                        <input type="text" class="form-control" name="nome" id="field_nome"
+                               formControlName="nome"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.sexo" for="field_sexo">Sexo</label>
+                        <select class="form-control" name="sexo" formControlName="sexo" id="field_sexo">
+                            <option value="MACHO">{{'ngzorroApp.AnimalSexo.MACHO' | translate}}</option>
+                            <option value="FEMEA">{{'ngzorroApp.AnimalSexo.FEMEA' | translate}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.pelagem" for="field_pelagem">Pelagem</label>
+                        <input type="text" class="form-control" name="pelagem" id="field_pelagem"
+                               formControlName="pelagem"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.temperamento" for="field_temperamento">Temperamento</label>
+                        <input type="text" class="form-control" name="temperamento" id="field_temperamento"
+                               formControlName="temperamento"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.emAtendimento" for="field_emAtendimento">Em Atendimento</label>
+                        <input type="checkbox" class="form-control" name="emAtendimento" id="field_emAtendimento"
+                               formControlName="emAtendimento"/>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.dataNascimento" for="field_dataNascimento">Data Nascimento</label>
+                        <div class="input-group col-md-6">
+                            <input id="field_dataNascimento" type="text" class="form-control" name="dataNascimento" ngbDatepicker  #dataNascimentoDp="ngbDatepicker" formControlName="dataNascimento"/>
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-secondary" (click)="dataNascimentoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                            </span>
+                        </div>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.endereco" for="field_endereco">Endereco</label>
+                        <select class="form-control" id="field_endereco" name="endereco" formControlName="enderecoId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="enderecoOption.id" *ngFor="let enderecoOption of enderecos; trackBy: trackById">{{enderecoOption.logradouro}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.veterinario" for="field_veterinario">Veterinario</label>
+                        <select class="form-control" id="field_veterinario" name="veterinario" formControlName="veterinarioId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="animalVeterinarioOption.id" *ngFor="let animalVeterinarioOption of animalveterinarios; trackBy: trackById">{{animalVeterinarioOption.nome}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.raca" for="field_raca">Raca</label>
+                        <select class="form-control" id="field_raca" name="raca" formControlName="racaId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="racaOption.id" *ngFor="let racaOption of racas; trackBy: trackById">{{racaOption.nome}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="form-control-label" jhiTranslate="ngzorroApp.animal.tutor" for="field_tutor">Tutor</label>
+                        <select class="form-control" id="field_tutor" name="tutor" formControlName="tutorId">
+                            <option [ngValue]="null"></option>
+                            <option [ngValue]="tutorOption.id" *ngFor="let tutorOption of tutors; trackBy: trackById">{{tutorOption.id}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                        <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                    </button>
+                    <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                        <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,79 @@
+<div class="card jh-card">
+    <h2 id="page-heading">
+        <span jhiTranslate="ngzorroApp.venda.home.title">Vendas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-venda" [routerLink]="['/venda/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="ngzorroApp.venda.home.createLabel">
+            Create a new Venda
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="vendas?.length === 0">
+        <span jhiTranslate="ngzorroApp.venda.home.notFound">No vendas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="vendas?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="transition.bind(this)">
+            <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="observacao"><span jhiTranslate="ngzorroApp.venda.observacao">Observacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dataDaCompra"><span jhiTranslate="ngzorroApp.venda.dataDaCompra">Data Da Compra</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="dataDoPagamento"><span jhiTranslate="ngzorroApp.venda.dataDoPagamento">Data Do Pagamento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="desconto"><span jhiTranslate="ngzorroApp.venda.desconto">Desconto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="situacao"><span jhiTranslate="ngzorroApp.venda.situacao">Situacao</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="valorTotal"><span jhiTranslate="ngzorroApp.venda.valorTotal">Valor Total</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"  jhiSortBy="atendimentoId"><span jhiTranslate="ngzorroApp.venda.atendimento">Atendimento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let venda of vendas ;trackBy: trackId">
+                <td><a [routerLink]="['/venda', venda.id, 'view' ]">{{venda.id}}</a></td>
+                <td>{{venda.observacao}}</td>
+                <td>{{venda.dataDaCompra | date:'medium'}}</td>
+                <td>{{venda.dataDoPagamento | date:'medium'}}</td>
+                <td>{{venda.desconto}}</td>
+                <td jhiTranslate="{{'ngzorroApp.TipoSituacaoDoLancamento.' + venda.situacao}}">{{venda.situacao}}</td>
+                <td>{{venda.valorTotal}}</td>
+                <td>
+                    <div *ngIf="venda.atendimentoId">
+                        <a [routerLink]="['/atendimento', venda.atendimentoId , 'view' ]" >{{venda.atendimentoId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/venda', venda.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/venda', venda.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(venda)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="vendas?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>
