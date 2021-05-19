@@ -26,9 +26,12 @@
       </li>
       <li nz-submenu [nzTitle]="(getNameMenu('global.menu.entities.main') | async)" nzIcon="unordered-list">
         <ul>
-          <!-- <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li> -->
+          <li nz-menu-item nzMatchRouter>
+            <a routerLink="sys-company">
+              <i nz-icon nzType="user" nzTheme="outline"></i>
+              <span jhiTranslate="global.menu.admin.userManagement">Company</span>
+            </a>
+          </li>
         </ul>
       </li>
       <li *jhiHasAnyAuthority="'ROLE_ADMIN'" nz-submenu [nzTitle]="(getNameMenu('global.menu.admin.main') | async)" nzIcon="user-add">

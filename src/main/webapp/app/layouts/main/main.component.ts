@@ -74,7 +74,8 @@ export class MainComponent implements OnInit {
   }
 
   isAuthenticate() {
-    return this.accountService.isAuthenticated();
+    // return this.accountService.isAuthenticated();
+    return true;
   }
 
   getNameMenu(i18n) {
