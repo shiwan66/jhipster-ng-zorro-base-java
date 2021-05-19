@@ -54,7 +54,7 @@
                         <label class="form-control-label" jhiTranslate="ngzorroApp.anexo.animal" for="field_animal">Animal</label>
                         <select class="form-control" id="field_animal" name="animal" formControlName="animalId">
                             <option [ngValue]="null"></option>
-                            <option [ngValue]="animalOption.id" *ngFor="let animalOption of animals; trackBy: trackById">{{animalOption.id}}</option>
+                            <option [ngValue]="animalOption.id" *ngFor="let animalOption of animals; ">{{animalOption.id}}</option>
                         </select>
                     </div>
                 </div>

@@ -11,7 +11,6 @@ import { JhiAlertService, JhiDataUtils } from 'ng-jhipster';
 import { IAnexo, Anexo } from 'app/shared/model/anexo.model';
 import { AnexoService } from './anexo.service';
 import { IAnimal } from 'app/shared/model/animal.model';
-import { AnimalService } from 'app/entities/animal/animal.service';
 
 @Component({
   selector: 'jhi-anexo-update',
@@ -37,7 +36,6 @@ export class AnexoUpdateComponent implements OnInit {
     protected dataUtils: JhiDataUtils,
     protected jhiAlertService: JhiAlertService,
     protected anexoService: AnexoService,
-    protected animalService: AnimalService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -47,9 +45,9 @@ export class AnexoUpdateComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ anexo }) => {
       this.updateForm(anexo);
     });
-    this.animalService
-      .query()
-      .subscribe((res: HttpResponse<IAnimal[]>) => (this.animals = res.body), (res: HttpErrorResponse) => this.onError(res.message));
+    // this.animalService
+    //   .query()
+    //   .subscribe((res: HttpResponse<IAnimal[]>) => (this.animals = res.body), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(anexo: IAnexo) {
