@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit, Renderer, ElementRef } from '@angular
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
-import { LoginModalService } from 'app/core/login/login-modal.service';
 import { PasswordResetFinishService } from './password-reset-finish.service';
 
 @Component({
@@ -23,7 +22,6 @@ export class PasswordResetFinishComponent implements OnInit, AfterViewInit {
 
   constructor(
     private passwordResetFinishService: PasswordResetFinishService,
-    private loginModalService: LoginModalService,
     private route: ActivatedRoute,
     private elementRef: ElementRef,
     private renderer: Renderer,

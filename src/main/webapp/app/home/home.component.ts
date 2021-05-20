@@ -2,7 +2,6 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { LoginModalService } from 'app/core/login/login-modal.service';
 import { AccountService } from 'app/core/auth/account.service';
 import { Account } from 'app/core/user/account.model';
 
@@ -17,11 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   isCollapsed = false;
 
-  constructor(
-    private accountService: AccountService,
-    private loginModalService: LoginModalService,
-    private eventManager: JhiEventManager
-  ) {}
+  constructor(private accountService: AccountService, private eventManager: JhiEventManager) {}
 
   ngOnInit() {
     this.accountService.identity().subscribe((account: Account) => {
