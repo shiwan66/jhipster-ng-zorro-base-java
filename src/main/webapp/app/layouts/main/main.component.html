@@ -13,7 +13,7 @@
     [nzTrigger]="null">
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+        <img src="/content/images/logo-jhipster.png" alt="logo">
         <h1>Sistema de teste</h1>
       </a>
     </div>
@@ -126,12 +126,12 @@
         
 
         <div nz-row>
-          <div nz-col nzMd="18" nzXs="18" nzLg="20">
+          <div nz-col nzMd="20" nzXs="18" nzLg="22">
             <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
               <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
             </span>
           </div>
-          <div nz-col nzMd="3" nzXs="3" nzLg="2">
+          <div nz-col nzMd="4" nzXs="6" nzLg="2">
             <div class="">
               <ul nz-menu nzTheme="light" nzMode="horizontal">
                 <li nz-submenu [nzTitle]="(getNameMenu('global.menu.account.main') | async)" nzIcon="user">

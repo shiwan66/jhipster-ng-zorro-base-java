@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "br.com.ngzorro",
-      "nativeLanguage": "pt-br"
+      "nativeLanguage": "zh-cn"
     },
     "jhipsterVersion": "6.5.1",
     "applicationType": "monolith",
@@ -40,8 +40,8 @@
       }
     ],
     "enableTranslation": true,
-    "nativeLanguage": "pt-br",
-    "languages": ["pt-br"],
+    "nativeLanguage": "zh-cn",
+    "languages": ["zh-cn"],
     "blueprints": [
       {
         "name": "generator-jhipster-login-page",

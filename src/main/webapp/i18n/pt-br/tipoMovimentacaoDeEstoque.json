@@ -1,9 +1,0 @@
-{
-  "ngzorroApp": {
-    "TipoMovimentacaoDeEstoque": {
-      "null": "",
-      "ENTRADA": "ENTRADA",
-      "SAIDA": "SAIDA"
-    }
-  }
-}

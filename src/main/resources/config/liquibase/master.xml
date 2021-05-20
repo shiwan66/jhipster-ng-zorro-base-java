@@ -14,51 +14,7 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230249_added_entity_AnimalTipoDeAlteracao.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230250_added_entity_Animal.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230251_added_entity_AnimalTipoDeVacina.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230252_added_entity_Raca.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230253_added_entity_Tutor.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230254_added_entity_Endereco.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230255_added_entity_AnimalObservacao.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230256_added_entity_AnimalAlteracao.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230257_added_entity_AnimalVeterinario.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230258_added_entity_AnimalVacina.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230259_added_entity_AnimalVermifugo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230300_added_entity_AnimalCarrapaticida.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230301_added_entity_AnimalCio.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230302_added_entity_Consumo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230303_added_entity_Atendimento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230304_added_entity_Venda.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230305_added_entity_VendaConsumo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230306_added_entity_MovimentacaoDeEstoque.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200226230307_added_entity_Anexo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230308_added_entity_AnexoAtendimento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230309_added_entity_Fornecedor.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230310_added_entity_Titulo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230311_added_entity_Atividade.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230312_added_entity_ModeloAtividade.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226232620_added_entity_Produto.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226232621_added_entity_Categoria.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20200226230250_added_entity_constraints_Animal.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230253_added_entity_constraints_Tutor.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230255_added_entity_constraints_AnimalObservacao.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230256_added_entity_constraints_AnimalAlteracao.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230258_added_entity_constraints_AnimalVacina.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230259_added_entity_constraints_AnimalVermifugo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230300_added_entity_constraints_AnimalCarrapaticida.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230301_added_entity_constraints_AnimalCio.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230303_added_entity_constraints_Atendimento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230304_added_entity_constraints_Venda.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230305_added_entity_constraints_VendaConsumo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230306_added_entity_constraints_MovimentacaoDeEstoque.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230307_added_entity_constraints_Anexo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230308_added_entity_constraints_AnexoAtendimento.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230309_added_entity_constraints_Fornecedor.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230310_added_entity_constraints_Titulo.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230311_added_entity_constraints_Atividade.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226230312_added_entity_constraints_ModeloAtividade.xml" relativeToChangelogFile="false"/>
-    <include file="config/liquibase/changelog/20200226232620_added_entity_constraints_Produto.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
